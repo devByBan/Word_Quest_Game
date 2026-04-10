@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORD QUEST</title>
+    <link rel="stylesheet" href="css/Main_Page.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="top-buttons">
+        <button class="btn-pixel" id="darkLightBtn">🌓 DARK</button>
+        <button class="btn-pixel" id="soundToggleBtn">🔊 ON</button>
+        <button class="btn-pixel" id="instructionBtn">HOW?</button>
+    </div>
+
+    <div class="page-container">
+        <div class="main-panel">
+            <div class="title-section">
+                <div class="title-word">WORD</div>
+                <div class="title-quest">QUEST</div>
+            </div>
+
+            <div class="subtitle">UNSCRAMBLE THE WORDS · BEAT THE CLOCK</div>
+
+          <div class="section-title">&lt;&lt; Select Mode &gt;&gt;</div>
+
+            <div class="mode-selector" id="modeSelector">
+                <div class="mode-card selected" data-mode="classic">
+                    <div class="mode-icon">🕹️</div>
+                    <div class="mode-title">CLASSIC</div>
+                    <div class="mode-desc">5 ROUNDS · SCORE ATTACK</div>
+                </div>
+                <div class="mode-card" data-mode="endless">
+                    <div class="mode-icon">⚡</div>
+                    <div class="mode-title">ENDLESS</div>
+                    <div class="mode-desc">SURVIVE · NO LIMITS</div>
+                </div>
+                <div class="mode-card" data-mode="challenge">
+                    <div class="mode-icon">🏆</div>
+                    <div class="mode-title">CHALLENGE</div>
+                    <div class="mode-desc">DAILY · CHALLENGE</div>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-box">
+                    <span>🏆 HIGH</span>
+                    <span><span class="stat-number">0   </span>GAME</span>
+                </div>
+                <div class="stat-box">
+                    <span>🎮 POINT</span>
+                    <span><span class="stat-number">0</span>SCORE</span>
+                </div>
+                <div class="stat-box">
+                    <span>⭐ RANK</span>
+                    <span><span class="stat-number">1</span>LVL</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="popup" id="instructionPopup">
+        <div class="popup-box">
+            <div class="section-title">HOW TO PLAY</div>
+            <p>🔤 UNSCRAMBLE LETTERS<br>⏱️ BEAT THE CLOCK<br>⭐ EARN POINTS<br><br>CLASSIC: 5 rounds<br>ENDLESS: infinite<br>CHALLENGE: daily</p>
+            <button id="closePopupBtn">CLOSE</button>
+        </div>
+    </div>
+
+    <script src="js/Main_Page.js"></script>
+</body>
+</html>

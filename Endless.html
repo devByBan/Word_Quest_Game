@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚡ SURVIVAL WORD QUEST</title>
+    <link rel="stylesheet" href="css/Endless_Gamplay.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="survival-header">
+            <div class="title-block">
+                <div class="title-word">WORD</div>
+                <div class="title-quest">QUEST</div>
+            </div>
+
+            <div class="header-group">
+                <div class="survival-meter">
+                    <span class="meter-icon">⚔️</span>
+                    <div class="meter-bars" id="survivalBars">
+                        <span class="bar-segment fill"></span>
+                        <span class="bar-segment fill"></span>
+                        <span class="bar-segment fill"></span>
+                        <span class="bar-segment fill"></span>
+                        <span class="bar-segment"></span>
+                    </div>
+                </div>
+                <button class="exit-button" onclick="window.location.href='Main_Page.html'">🚪</button>
+            </div>
+        </div>
+
+        <div class="survival-stats">
+            <div class="stat-group">
+                <div class="stat-blood">
+                    <span class="blood-icon">🩸</span>
+                    <span class="blood-value" id="bloodLevel">100%</span>
+                </div>
+            </div>
+            <div class="highscore-block">
+                <span>🏆 HIGH</span>
+                <span class="highscore-number" id="highScoreDisplay">0</span>
+            </div>
+        </div>
+
+        <div class="decay-bar">
+            <div class="decay-fill" id="decayFill"></div>
+        </div>
+
+        <div class="game-area">
+            <div class="word-display">
+                <div class="scrambled-word" id="scrambledWord">S U R V I V E</div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" class="guess-input" id="guessInput" placeholder="SURVIVE" maxlength="20" autofocus>
+                <div class="action-buttons">
+                    <button class="pixel-btn" id="submitBtn">FIGHT</button>
+                    <button class="pixel-btn survival" id="shuffleBtn">SHUFFLE</button>
+                    <button class="pixel-btn survival" id="hintBtn">SURVIVE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-row">
+            <div class="status-item">
+                <span>⏳</span>
+                <span class="status-value" id="timer">5</span>
+            </div>
+            <div class="status-item">
+                <span>💀</span>
+                <span class="status-value" id="pointsDisplay">0</span>
+            </div>
+        </div>
+
+        <div class="message-area" id="messageDisplay">
+            SURVIVE · NO RULES · ENDLESS
+        </div>
+    </div>
+
+    <script src="js/endless.js"></script>
+</body>
+</html>

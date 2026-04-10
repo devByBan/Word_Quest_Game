@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+body {
+    background: black;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    padding: 1rem;
+}
+
+.pixel-panel {
+    background: rgb(0, 0, 0);
+    width: 100%;
+    max-width: 600px;
+    padding: 2.5rem 2rem 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border-radius: 15px;
+}
+
+.twinkle-label {
+    font-size: 1.3rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f2e6b0;
+    text-shadow: 4px 4px 0 #4f2e6b, 7px 7px 0 #261c35;
+    background: #1f2a3f;
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    box-shadow: inset -4px -4px 0 #0f172a, inset 4px 4px 0 #4f6396;
+    animation: pixelTwinkle 2.4s step-end infinite;
+}
+
+@keyframes pixelTwinkle {
+    0%, 100% {
+        color: #f2e6b0;
+        text-shadow: 4px 4px 0 #6a3b7c, 7px 7px 0 #2d1b3c;
+        box-shadow: inset -4px -4px 0 #0f172a, inset 4px 4px 0 #4f6396;
+    }
+    30% {
+        color: #fcf2c2;
+        text-shadow: 4px 4px 0 #a34b9e, 7px 7px 0 #40254a;
+        box-shadow: inset -4px -4px 0 #141e36, inset 4px 4px 0 #657bbf;
+    }
+    70% {
+        color: #ffe4ae;
+        text-shadow: 4px 4px 0 #8f479b, 7px 7px 0 #352042;
+        box-shadow: inset -4px -4px 0 #0a1225, inset 4px 4px 0 #596eaa;
+    }
+}
+
+.pixel-input {
+    background: #1f2a3f;
+    border: none;
+    outline: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: #f5edc4;
+    box-shadow: inset -5px -5px 0 #0e162b, inset 5px 5px 0 #576cad;
+    letter-spacing: 3px;
+}
+
+.pixel-input::placeholder {
+    color: #7f92c4;
+    font-size: 1rem;
+    opacity: 1;
+}
+
+.static-counter {
+    font-size: 0.75rem;
+    color: #b4c3e6;
+    background: #1f2a3f;
+    padding: 0.5rem 1.4rem;
+    box-shadow: inset -3px -3px 0 #0d1529, inset 3px 3px 0 #4d6093;
+    letter-spacing: 2px;
+    margin-top: 0.2rem;
+}
+
+.start-btn {
+    background: #1f2a3f;
+    border: none;
+    outline: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.6rem;
+    padding: 1rem 2.8rem;
+    color: #f7f7da;
+    text-shadow: 3px 3px 0 #2e4f1f, 5px 5px 0 #1a2f10;
+    letter-spacing: 4px;
+    box-shadow: inset -5px -5px 0 #0e172b, inset 5px 5px 0 #6073ae;
+    cursor: pointer;
+    transition: all 0.05s ease-in-out;
+    width: auto;
+    min-width: 280px;
+    max-width: 360px;
+    margin-top: 0.5rem;
+    align-self: center;
+}
+
+.start-btn:active {
+    transform: translate(3px, 3px);
+    box-shadow: inset -2px -2px 0 #1e2f45, inset 2px 2px 0 #8499d4;
+    text-shadow: 2px 2px 0 #14220d;
+}
+
+input:focus, button:focus {
+    outline: none;
+}
+
+@media (max-width: 450px) {
+    .pixel-panel {
+        padding: 2rem 1rem;
+    }
+    .twinkle-label {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+    .pixel-input {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.2rem;
+        max-width: 320px;
+    }
+    .start-btn {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.6rem;
+        min-width: 240px;
+    }
+}

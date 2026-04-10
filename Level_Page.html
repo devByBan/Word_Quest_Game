@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚔️ Where are you tho?</title>
+    <link rel="stylesheet" href="css/Level_Page.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="room-panel">
+        <div class="pixel-header">
+            <span class="room-title">⚔️ WORD Quest</span>
+            <div class="header-right">
+                <div class="pixel-coin">
+                    <span class="mini-run"></span>
+                    🔑 Classic Mode
+                </div>
+                <button class="exit-button" onclick="window.location.href='Main_Page.html'">🚪</button>
+            </div>
+        </div>
+
+        <div class="level-step-indicator">
+            <div class="level-label">
+                <span class="icon-sword">⚔️</span>
+                <span>A1 · BEGINNER</span>
+                <span class="level-badge">1L</span>
+            </div>
+            <div class="step-pixels">
+                <span class="step-group">
+                    <span class="step-text">STEP</span>
+                    <span class="step-dots">
+                        <span class="dot filled"></span>
+                        <span class="dot filled"></span> 
+                        <span class="dot filled"></span> 
+                        <span class="dot filled"></span> 
+                        <span class="dot"></span>        
+                    </span>
+                </span>
+                <span class="current-room-tag">4/5</span>
+            </div>
+        </div>
+
+        <div class="fun-lock-status">
+            <span class="hero-idle">
+                <span class="pixel-avatar walk-cycle"></span>
+                <span>KNIGHT</span>
+            </span>
+            <span>🚪 A1 OPEN · ALL OTHERS LOCKED</span>
+            <span class="hero-idle">
+                <span>🐉</span>
+                <span class="boss-text">BOSS</span>
+            </span>
+        </div>
+
+        <div class="world-grid">
+            <div class="floor-row">
+                <div class="floor-badge">A</div>
+                <div class="room-buttons">
+                    <div class="room-card unlocked" id="room-a1">
+                        <span class="room-name">A1</span>
+                        <div>BEGINNER</div>
+                    </div>
+                    <div class="room-card locked" id="room-a2">
+                        <span class="room-name">A2</span>
+                        <div>BASIC</div>
+                    </div>
+                </div>
+                <span class="pixel-tag">📘 STARTER</span>
+                <span class="player-icon">👤</span>
+            </div>
+
+            <div class="floor-row">
+                <div class="floor-badge">B</div>
+                <div class="room-buttons">
+                    <div class="room-card locked" id="room-b1">
+                        <span class="room-name">B1</span>
+                        <div>LOW INT</div>
+                    </div>
+                    <div class="room-card locked" id="room-b2">
+                        <span class="room-name">B2</span>
+                        <div>HIGH INT</div>
+                    </div>
+                </div>
+                <span class="pixel-tag">📗 INTERMEDIATE</span>
+                <span class="skull-icon">💀</span>
+            </div>
+
+            <div class="floor-row">
+                <div class="floor-badge">C</div>
+                <div class="room-buttons">
+                    <div class="room-card locked" id="room-c1">
+                        <span class="room-name">C1</span>
+                        <div>ADVANCED</div>
+                    </div>
+                    <div class="room-card locked" id="room-c2">
+                        <span class="room-name">C2</span>
+                        <div>MASTER</div>
+                    </div>
+                </div>
+                <span class="pixel-tag">📙 EXPERT</span>
+                <span class="pixel-eye"></span>
+            </div>
+        </div>
+
+        <div class="room-footer">
+            <div class="legend-pixel">
+                <span class="pixel-char">🧙</span>
+                <span class="locked-dot">🔒 LOCKED</span>
+                <span class="open-text">⭐ A1 OPEN</span>
+            </div>
+            <div class="pixel-counter">
+                <span class="pixel-coin-mini"></span>
+                <span>🏆 0/6 MASTERED</span>
+            </div>
+        </div>
+
+        <div class="tiny-message">
+            <span>⚡</span> ONLY A1 UNLOCKED · DEFEAT THE BOSS TO PROGRESS <span>⚡</span>
+            <span class="alien-icon">👾</span>
+        </div>
+    </div>
+
+    <script src="js/level.js"></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+}
+
+body {
+    background: black;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Press Start 2P', 'Courier New', monospace;
+    padding: 16px;
+    position: relative;
+}
+
+body.light-mode {
+    background: #a0aec0;
+}
+
+.top-buttons {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 1100;
+}
+
+.btn-pixel {
+    background: #1f273f;
+    box-shadow: inset -3px -3px 0 #0c1120, inset 3px 3px 0 #46537c;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.7rem;
+    padding: 0.9rem 0.9rem;
+    color: #e2ddad;
+    letter-spacing: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    cursor: pointer;
+    border: 0;
+    width: 90px;
+    min-width: 90px;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.btn-pixel:active {
+    transform: translate(2px, 2px);
+    box-shadow: inset -1px -1px 0 #0c1120, inset 1px 1px 0 #6a7bbf;
+}
+
+body.light-mode .btn-pixel {
+    background: #cbd5f0;
+    color: #1d263b;
+    box-shadow: inset -3px -3px 0 #8d9ac2, inset 3px 3px 0 #f0f4ff;
+}
+
+.page-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-panel {
+    background: black;
+    width: 100%;
+    max-width: 780px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+body.light-mode .main-panel {
+    background: #d1dbe8;
+}
+
+body.light-mode .title-word {
+    text-shadow: 5px 5px 0 #9b6fb0, 9px 9px 0 #4f3970;
+    color: #322b3f;
+}
+
+body.light-mode .title-quest {
+    text-shadow: 4px 4px 0 #3f6a8c, 7px 7px 0 #1e3a4f;
+    color: #245c46;
+}
+
+body.light-mode .subtitle {
+    background: #b1bed6;
+    color: #1c2338;
+    box-shadow: inset -3px -3px 0 #7a88a8, inset 3px 3px 0 #ebf0ff;
+}
+
+body.light-mode .section-title {
+    color: #2a314b;
+    text-shadow: 3px 3px 0 #b3c1dd;
+}
+
+body.light-mode .mode-card {
+    background: #cbd5f0;
+    box-shadow: inset -4px -4px 0 #8d9ac2, inset 4px 4px 0 #f0f4ff;
+}
+
+body.light-mode .mode-card .mode-title {
+    color: #1d263b;
+}
+
+body.light-mode .mode-card .mode-desc {
+    color: #28344e;
+}
+
+body.light-mode .mode-card.selected {
+    background: #9fadd6;
+    box-shadow: inset -2px -2px 0 #5c6b9a, inset 2px 2px 0 #f0f4ff;
+}
+
+body.light-mode .stat-box {
+    background: #b8c5e3;
+    box-shadow: inset -3px -3px 0 #7b8bb9, inset 3px 3px 0 #ecf1ff;
+    color: #1f2742;
+}
+
+.title-section {
+    text-align: center;
+    width: 100%;
+}
+
+.title-word {
+    font-size: clamp(2.8rem, 12vw, 5rem);
+    letter-spacing: 6px;
+    color: #f6e9b2;
+    text-shadow: 5px 5px 0 #7c3f8c, 9px 9px 0 #2d1b3c;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+    word-break: break-word;
+}
+
+.title-quest {
+    font-size: clamp(2rem, 8vw, 4rem);
+    letter-spacing: 6px;
+    color: #b2f0c0;
+    text-shadow: 4px 4px 0 #3f6a8c, 7px 7px 0 #1e3a4f;
+    line-height: 1;
+    margin-top: -0.5rem;
+    word-break: break-word;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: #acaed3;
+    letter-spacing: 2px;
+    margin-top: 1rem;
+    text-transform: uppercase;
+    background: #1f2538;
+    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    box-shadow: inset -3px -3px 0 #0e121e, inset 3px 3px 0 #414a66;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #e2ddad;
+    letter-spacing: 4px;
+    margin-bottom: 0.75rem;
+    text-shadow: 3px 3px 0 #272e42;
+    text-align: center;
+}
+
+.mode-selector {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.mode-card {
+    background: #1f273f;
+    padding: 1.6rem 1.2rem 1.2rem;
+    min-width: 150px;
+    flex: 1 0 140px;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: inset -4px -4px 0 #0c1120, inset 4px 4px 0 #46537c;
+    cursor: pointer;
+}
+
+.mode-card.selected {
+    background: #2d3657;
+    box-shadow: inset -2px -2px 0 #0c1120, inset 2px 2px 0 #6a7bbf;
+    transform: translate(2px, 2px);
+}
+
+.mode-icon {
+    font-size: 3rem;
+    filter: drop-shadow(4px 4px 0 #1b1f2f);
+}
+
+.mode-title {
+    font-size: 1rem;
+    color: #e8e2b6;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.mode-desc {
+    font-size: 0.65rem;
+    color: #a2b3da;
+    line-height: 1.4;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.stats-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0.25rem 0;
+}
+
+.stat-box {
+    background: #1e263c;
+    padding: 0.9rem 2rem;
+    box-shadow: inset -3px -3px 0 #0d1323, inset 3px 3px 0 #43507a;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-size: 0.8rem;
+    color: #bcc9f0;
+}
+
+.stat-number {
+    color: #fadf7a;
+    font-size: 1.5rem;
+    margin-right: 0.25rem;
+}
+
+.popup {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    font-family: 'Press Start 2P', monospace;
+}
+
+.popup.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-box {
+    background: #1e263c;
+    padding: 2rem;
+    max-width: 480px;
+    width: 90%;
+    box-shadow: inset -6px -6px 0 #0d1323, inset 6px 6px 0 #43507a;
+    color: #e2ddad;
+    text-align: center;
+}
+
+.popup-box p {
+    font-size: 0.8rem;
+    line-height: 1.8;
+    margin: 1.5rem 0;
+}
+
+.popup-box button {
+    background: #1f273f;
+    font-family: 'Press Start 2P', monospace;
+    border: 0;
+    padding: 1rem 2rem;
+    box-shadow: inset -3px -3px 0 #0c1120, inset 3px 3px 0 #46537c;
+    color: #f0e9b2;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    .top-buttons {
+        gap: 0.2rem;
+        right: 6px;
+        top: 8px;
+    }
+    .btn-pixel {
+        width: 75px;
+        min-width: 75px;
+        padding: 0.7rem 0.2rem;
+        font-size: 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-buttons {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        max-width: 160px;
+    }
+    .btn-pixel {
+        width: 70px;
+        min-width: 70px;
+        font-size: 0.55rem;
+        padding: 0.6rem 0.1rem;
+    }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚔️ WORD QUEST ⚔️</title>
+    <link rel="stylesheet" href="Css/Classic.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <div class="game-header">
+            <div class="title-block">
+                <div class="title-word">WORD</div>
+                <div class="title-quest">QUEST</div>
+            </div>
+            <div class="header-right">
+                <div class="coin-display">
+                    <span class="coin-icon"></span>
+                    <span id="coinCounter">3 KEYS</span>
+                </div>
+                <button class="exit-button" onclick="window.location.href='Level_Page.html'">🚪</button>
+            </div>
+        </div>
+
+        <div class="level-indicator">
+            <div class="level-badge" id="currentLevel">A1 · BEGINNER</div>
+            <div class="step-container">
+                <span class="step-dots" id="stepDots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </span>
+                <span class="step-text" id="stepText">0/5</span>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="word-display">
+                <div class="scrambled-word" id="scrambledWord">L A P T O P</div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" class="guess-input" id="guessInput" placeholder="YOUR GUESS" maxlength="20" autofocus>
+                <div class="action-buttons">
+                    <button class="pixel-btn" id="submitBtn">SUBMIT</button>
+                    <button class="pixel-btn secondary" id="shuffleBtn">SHUFFLE</button>
+                    <button class="pixel-btn secondary" id="hintBtn">HINT</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="stat-item">
+                <span>⏱️ TIME</span>
+                <span class="stat-value" id="timer">0</span>
+            </div>
+        </div>
+
+        <div class="message-area" id="messageDisplay">
+            TIME'S UP! Try again!
+        </div>
+    </div>
+
+    <script src="js/classic.js"></script>
+</body>
+</html>

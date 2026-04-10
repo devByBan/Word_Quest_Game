@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏆 DAILY CHALLENGE</title>
+    <link rel="stylesheet" href="css/Challenge.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="lock-overlay" id="lockOverlay">
+        <div class="lock-box">
+            <div class="lock-icon">🏆⏳</div>
+            <p>DAILY CHALLENGE COMPLETED</p>
+            <div class="lock-timer" id="lockTimer">NEXT: 23:59:59</div>
+            <button class="pixel-btn daily" id="closeLockBtn">CLOSE</button>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="game-header">
+            <div class="title-block">
+                <div class="title-word">DAILY</div>
+                <div class="title-quest">CHALLENGE</div>
+            </div>
+            <div class="header-right">
+                <div class="streak-display">
+                    <span class="streak-icon">🔥</span>
+                    <span id="streakValue">0</span>
+                </div>
+                <button class="exit-button" onclick="window.location.href='Main_Page.html'">🚪</button>
+            </div>
+        </div>
+
+        <div class="day-indicator">
+            <div class="day-badge" id="dayBadge">DAY #1</div>
+            <div class="countdown-container">
+                <span class="countdown-label">NEXT</span>
+                <span class="countdown-timer" id="countdownTimer">23:00:00</span>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="word-display">
+                <div class="scrambled-word" id="scrambledWord">????</div>
+            </div>
+
+            <div class="input-area">
+                <input type="text" class="guess-input" id="guessInput" placeholder="GUESS" maxlength="20" autofocus>
+                <div class="action-buttons">
+                    <button class="pixel-btn daily" id="submitBtn">SUBMIT</button>
+                    <button class="pixel-btn" id="shuffleBtn">SHUFFLE</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <div class="stat-item">
+                <span>📅</span>
+                <span class="stat-value" id="attStatus">Lost</span>
+            </div>
+            <div class="stat-item">
+                <span>🏆</span>
+                <span class="stat-value" id="streakDisplay">0</span>
+            </div>
+        </div>
+
+        <div class="message-area" id="messageDisplay">
+            ONE GUESS · ONE CHANCE
+        </div>
+    </div>
+
+
+</body>
+</html>
