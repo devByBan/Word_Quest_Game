@@ -76,6 +76,33 @@ body {
     flex-shrink: 0;
 }
 
+.exit-door-button {
+    background: #4d3a62;
+    border: 3px solid #836db0;
+    box-shadow: inset -3px -3px 0 #2b1e40, inset 3px 3px 0 #b496e6;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.8rem;
+    color: #f9eaa2;
+    cursor: pointer;
+    line-height: 1;
+    transition: all 0.05s step-start;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.exit-door-button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: inset -2px -2px 0 #2b1e40, inset 2px 2px 0 #b496e6;
+}
+
+.exit-door-button:active {
+    transform: translate(3px, 3px);
+    box-shadow: inset -1px -1px 0 #2b1e40, inset 1px 1px 0 #b496e6;
+}
+
 .challenge-stats-panel {
     background: #2d2240;
     padding: 2rem;
@@ -189,14 +216,6 @@ body {
     text-shadow: 2px 2px 0 #4f2d82;
 }
 
-.pixel-btn.exit {
-    background: #3a314b;
-    border-color: #5b4b70;
-    box-shadow: inset -4px -4px 0 #241e34, inset 4px 4px 0 #6b588a;
-    color: #d6c6ff;
-    border-bottom: 4px solid #2f253f;
-}
-
 @media (max-width: 600px) {
     .room-panel { 
         padding: 1.5rem; 
@@ -228,6 +247,11 @@ body {
     
     .challenge-stats-panel { 
         padding: 1.5rem; 
+    }
+
+    .exit-door-button {
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
     }
 }
 

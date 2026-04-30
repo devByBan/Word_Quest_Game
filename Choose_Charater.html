@@ -3,58 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SELECT CHARACTER Your Character</title>
-    <link rel="stylesheet" href="css/Choose_Characters.css">
+    <title>SELECT CHARACTER · PIXEL WARRIORS</title>
+    <link rel="stylesheet" href="Css/Choose_Characters.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="scanlines"></div>
-
     <div class="screen">
         <h1>SELECT CHARACTER</h1>
 
         <div class="characters">
-            <div class="char-card selected" data-name="Aurum" id="charAurum">
-                <div class="sprite-wrap">
-                    <div class="pixel-img">
-                        <div class="img-placeholder">Name</div>
-                    </div>
+            <div class="char-card" data-name="Aurum">
+                <div class="char-img">
+                    <img src="Image/character1.png" alt="Aurum">
                 </div>
-                <span class="char-name">Name</span>
+                <div class="char-name">AURUM</div>
+                <div class="char-class">⚔️ KNIGHT</div>
             </div>
 
-            <div class="char-card" data-name="Chomper" id="charChomper">
-                <div class="sprite-wrap">
-                    <div class="pixel-img">
-                        <div class="img-placeholder">Name</div>
-                    </div>
+            <div class="char-card" data-name="Chomper">
+                <div class="char-img">
+                    <img src="Image/character2.png" alt="Chomper">
                 </div>
-                <span class="char-name">Name</span>
+                <div class="char-name">CHOMPER</div>
+                <div class="char-class">🐺 BEAST</div>
             </div>
 
-            <div class="char-card" data-name="Silva" id="charSilva">
-                <div class="sprite-wrap">
-                    <div class="pixel-img">
-                        <div class="img-placeholder">Name</div>
-                    </div>
+            <div class="char-card" data-name="Silva">
+                <div class="char-img">
+                    <img src="Image/character3.png" alt="Silva">
                 </div>
-                <span class="char-name">Name</span>
+                <div class="char-name">SILVA</div>
+                <div class="char-class">🌿 ARCHER</div>
             </div>
 
-            <div class="char-card" data-name="Venus" id="charVenus">
-                <div class="sprite-wrap">
-                    <div class="pixel-img">
-                        <div class="img-placeholder">Name</div>
-                    </div>
+            <div class="char-card" data-name="Venus">
+                <div class="char-img">
+                    <img src="Image/character4.png" alt="Venus">
                 </div>
-                <span class="char-name">Name</span>
+                <div class="char-name">VENUS</div>
+                <div class="char-class">✨ MAGE</div>
             </div>
         </div>
 
         <a href="Main_Page.html" id="playLink">
-            <button class="play-btn" id="playBtn">PLAY &gt;&gt;&gt;</button>
+            <button class="play-btn">PLAY &gt;&gt;&gt;</button>
         </a>
     </div>
 
+    <script src="Js/Local_Store.js"></script>
+<script src="Js/Choose_Character.js"></script>
 </body>
 </html>

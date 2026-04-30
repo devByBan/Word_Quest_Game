@@ -4,14 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORD QUEST</title>
-    <link rel="stylesheet" href="css/Main_Page.css">
+    <link rel="stylesheet" href="Css/Main_Page.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="profile-header" id="profileHeader">
+        <div class="profile-avatar" id="profileAvatarBtn">
+            <img src="Image/character1.png" alt="Avatar" id="userAvatar">
+        </div>
+        <div class="profile-info">
+            <span class="username-label">PLAYER</span>
+            <span class="username-text" id="usernameDisplay"></span>
+        </div>
+     
+        <div class="profile-dropdown" id="profileDropdown">
+            <div class="dropdown-user-info">
+                <div class="dropdown-avatar">
+                    <img src="Image/character1.png" alt="avatar" id="dropdownAvatar">
+                </div>
+                <div class="dropdown-name" id="dropdownUserName"></div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item" id="changeUsernameBtn">✏️ Change Username</div>
+            <div class="dropdown-item" id="changeAvatarBtn">🖼️ Change Avatar</div>
+            <div class="dropdown-item" id="leaderboard">📊 LeaderBoard</div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item" id="signOutBtn">🚪 Sign out</div>
+        </div>
+        <input type="file" id="avatarUpload" accept="image/*" style="display: none;">
+    </div>
+
     <div class="top-buttons">
         <button class="btn-pixel" id="darkLightBtn">🌓 DARK</button>
         <button class="btn-pixel" id="soundToggleBtn">🔊 ON</button>
-        <button class="btn-pixel" id="instructionBtn">HOW?</button>
+        <button class="btn-pixel" id="instructionBtn">How</button>
+    </div>
+
+
+    <div id="howPopup" class="how-popout">
+        <div class="how-popout-header">
+            <span>🔔 TIP</span>
+            <button class="how-popout-close">✖</button>
+        </div>
+        <div class="how-popout-content">
+            <p>⚡ Click a game mode to start your quest!</p>
+            <p>🎮 Classic: 5 rounds · Endless: survive · Challenge: daily</p>
+            <p>⭐ Press <strong>How</strong> for full game details.</p>
+        </div>
+        <div class="how-popout-arrow"></div>
     </div>
 
     <div class="page-container">
@@ -20,10 +60,8 @@
                 <div class="title-word">WORD</div>
                 <div class="title-quest">QUEST</div>
             </div>
-
             <div class="subtitle">UNSCRAMBLE THE WORDS · BEAT THE CLOCK</div>
-
-          <div class="section-title">&lt;&lt; Select Mode &gt;&gt;</div>
+            <div class="section-title">&lt;&lt; Select Mode &gt;&gt;</div>
 
             <div class="mode-selector" id="modeSelector">
                 <div class="mode-card selected" data-mode="classic">
@@ -46,28 +84,46 @@
             <div class="stats-row">
                 <div class="stat-box">
                     <span>🏆 HIGH</span>
-                    <span><span class="stat-number">0   </span>GAME</span>
+                    <span><span class="stat-number" id="statHigh">0</span> STREAK</span>
                 </div>
                 <div class="stat-box">
                     <span>🎮 POINT</span>
-                    <span><span class="stat-number">0</span>SCORE</span>
+                    <span><span class="stat-number" id="statPoint">0</span> SCORE</span>
                 </div>
                 <div class="stat-box">
                     <span>⭐ RANK</span>
-                    <span><span class="stat-number">1</span>LVL</span>
+                    <span><span class="stat-number" id="statRank">A1</span> LVL</span>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="popup" id="instructionPopup">
-        <div class="popup-box">
-            <div class="section-title">HOW TO PLAY</div>
-            <p>🔤 UNSCRAMBLE LETTERS<br>⏱️ BEAT THE CLOCK<br>⭐ EARN POINTS<br><br>CLASSIC: 5 rounds<br>ENDLESS: infinite<br>CHALLENGE: daily</p>
-            <button id="closePopupBtn">CLOSE</button>
+        <div class="popup-box scrollable-info">
+            <div class="section-title">📖 HOW TO PLAY & GAME DETAILS</div>
+            <div class="info-content">
+                <div class="info-section">
+                    <h3>🔤 BASIC RULES</h3>
+                    <p>Unscramble the letters to form the correct word before the timer runs out. Each correct word earns points. Use hints carefully – they cost a key or reduce health depending on the mode.</p>
+                </div>
+                <div class="info-section">
+                    <h3>🕹️ CLASSIC MODE – STRUCTURED PROGRESSION</h3>
+                    <p>Classic Mode is based on a clear six - level structure: <strong>A1, A2, B1, B2, C1, C2</strong>. Each level has a countdown timer. Three keys (hints) are provided per level – using a hint costs one key. If the timer runs out, you must restart the level. This mode is like a skill ladder: simple, short words at lower levels, longer and more complex words at higher levels. Clear milestones, visible progress, and growing challenge keep you motivated to unlock higher levels.</p>
+                </div>
+                <div class="info-section">
+                    <h3>⚡ ENDLESS MODE – SURVIVAL CHALLENGE</h3>
+                    <p>Endless Mode has no level limits – only your high score matters. It uses a <strong>blood percentage system</strong> (health). You start with full blood. Using a hint or giving a wrong answer decreases your blood percentage. Solve words to earn points and survive as long as possible. When blood reaches 0%, the game ends. After a cooldown of about 45 minutes, your blood refills and you can continue from your previous score, aiming to beat your best.</p>
+                </div>
+                <div class="info-section">
+                    <h3>🏆 DAILY CHALLENGE – HABIT BUILDER</h3>
+                    <p>One puzzle per day. <strong>Hints are not allowed</strong>. Winning increases your streak, losing resets it to zero. Your trophy count shows total successful streaks. Designed to build daily learning habits, the streak system encourages you to return each day. The risk of losing your streak adds excitement and keeps you engaged.</p>
+                </div>
+            <button class="close-info-btn" id="closePopupBtn">CLOSE</button>
         </div>
     </div>
 
-    <script src="js/Main_Page.js"></script>
+    <script src="Js/Local_Store.js"></script>
+    <script src="Js/Sound.js"></script>
+    <script src="Js/Main_Page.js"></script>
 </body>
 </html>

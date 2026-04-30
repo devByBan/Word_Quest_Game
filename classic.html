@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>⚔️ WORD QUEST ⚔️</title>
+    <title>⚔️ WORD QUEST · CLASSIC MODE</title>
     <link rel="stylesheet" href="Css/Classic.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
@@ -57,13 +57,19 @@
                 <span>⏱️ TIME</span>
                 <span class="stat-value" id="timer">0</span>
             </div>
+            <div class="stat-item">
+                <span>🏆 SCORE</span>
+                <span class="stat-value" id="scoreDisplay">0</span>
+            </div>
         </div>
 
         <div class="message-area" id="messageDisplay">
-            TIME'S UP! Try again!
+            Click SHUFFLE if letters are messy. Use HINT carefully!
         </div>
     </div>
 
-    <script src="js/classic.js"></script>
+    <script src="Js/Local_Store.js"></script>
+      <script src="Js/Sound.js"></script>
+    <script src="Js/classic.js"></script>
 </body>
 </html>

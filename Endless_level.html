@@ -16,6 +16,7 @@
                     <span class="blood-pixel"></span>
                     ENDLESS MODE
                 </div>
+                <button class="exit-door-button" onclick="window.location.href='Main_Page.html'">🚪</button>
             </div>
         </div>
 
@@ -25,19 +26,19 @@
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-label">HIGH SCORE</div>
-                    <div class="stat-number large-number">0</div>
+                    <div class="stat-number large-number" id="highScoreStat">0</div>
                     <div class="stat-sub">POINTS</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-label">LONGEST RUN</div>
-                    <div class="stat-number">0</div>
+                    <div class="stat-number" id="longestRunStat">0</div>
                     <div class="stat-sub">SECONDS</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-label">TOTAL DIED</div>
-                    <div class="stat-number">0</div>
+                    <div class="stat-number" id="totalDeathsStat">0</div>
                     <div class="stat-sub">WORDS</div>
                 </div>
             </div>
@@ -46,11 +47,10 @@
                 <a href="Endless.html" class="btn-link">
                     <button class="pixel-btn play">▶ PLAY</button>
                 </a>
-                <a href="Main_Page.html" class="btn-link">
-                    <button class="pixel-btn exit">✖ EXIT</button>
-                </a>
             </div>
         </div>
     </div>
+    <script src="Js/Local_Store.js"></script>
+    <script src="Js/Endless_level.js"></script>
 </body>
 </html>

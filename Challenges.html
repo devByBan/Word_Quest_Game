@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="lock-overlay" id="lockOverlay">
+    <div class="lock-overlay" id="lockOverlay" style="display: none;">
         <div class="lock-box">
             <div class="lock-icon">🏆⏳</div>
             <p>DAILY CHALLENGE COMPLETED</p>
@@ -57,7 +57,7 @@
         <div class="status-bar">
             <div class="stat-item">
                 <span>📅</span>
-                <span class="stat-value" id="attStatus">Lost</span>
+                <span class="stat-value" id="attStatus">Not played</span>
             </div>
             <div class="stat-item">
                 <span>🏆</span>
@@ -70,6 +70,7 @@
         </div>
     </div>
 
-
+    <script src="Js/Local_Store.js"></script>
+    <script src="Js/chanllenges.js"></script>
 </body>
 </html>

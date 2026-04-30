@@ -2,23 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enter Your Name</title>
-    <link rel="stylesheet" href="css/Enter_name.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>PIXEL QUEST · SIGN UP</title>
+    <link rel="stylesheet" href="Css/Enter_name.css">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="pixel-panel">
-        <div class="twinkle-label">⚡ ENTER YOUR NAME</div>
-        
-        <input type="text" class="pixel-input" id="nameInput" placeholder="Your Name" maxlength="12">
-        <div class="static-counter" id="charCounter">0/12 characters</div>
+    <div class="pixel-container">
+        <div class="pixel-panel">
+            <div class="crt-label" id="formTitle">✨ CREATE ACCOUNT ✨</div>
 
-        <a href="Choose_Charater.html" id="startLink">
-            <button class="start-btn" id="startBtn">START GAME</button>
-        </a>
+            <div id="signupForm">
+                <div class="input-group">
+                    <span class="pixel-label">[ USERNAME ]</span>
+                    <input type="text" class="pixel-input" id="firstName" placeholder="NAME" maxlength="12">
+                    <div class="static-counter" id="firstCounter">0/12 characters</div>
+                </div>
+                <div class="input-group">
+                    <span class="pixel-label">[ EMAIL ]</span>
+                    <input type="email" class="pixel-input" id="email" placeholder="HERO@QUEST.COM" maxlength="30">
+                </div>
+                <div class="input-group">
+                    <span class="pixel-label">[ PASSWORD ]</span>
+                    <input type="password" class="pixel-input" id="signupPassword" placeholder="CREATE PASSWORD" maxlength="20">
+                </div>
+                <div class="terms-text">BY CLICKING BELOW TO SIGN UP YOU ARE AGREEING TO OUR TERMS</div>
+                <button class="pixel-btn" id="createBtn">🎮 CREATE MY ACCOUNT 🎮</button>
+            </div>
+
+            <div id="loginForm" style="display: none;">
+                <div class="input-group">
+                    <span class="pixel-label">[ EMAIL ]</span>
+                    <input type="text" class="pixel-input" id="loginName" placeholder="ENTER YOUR EMAIL" maxlength="30">
+                </div>
+                <div class="input-group">
+                    <span class="pixel-label">[ PASSWORD ]</span>
+                    <input type="password" class="pixel-input" id="loginPassword" placeholder="••••••" maxlength="20">
+                </div>
+                <button class="pixel-btn" id="loginBtn">▶ LOGIN ◀</button>
+            </div>
+
+            <div class="switch-action">
+                <span class="switch-text" id="switchMsg">ALREADY A WARRIOR?</span>
+                <button class="inline-switch" id="switchBtn">LOGIN →</button>
+            </div>
+            <div class="info-message" id="messageBox">📜 READY TO QUEST</div>
+        </div>
     </div>
 
-
+     <script src="Js/Local_Store.js"></script>
+     <script src="Js/login.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏆 DAILY CHALLENGE </title>
+    <title>🏆 DAILY CHALLENGE</title>
     <link rel="stylesheet" href="css/Challenge_Tracking.css">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
@@ -16,6 +16,7 @@
                     <span class="challenge-pixel"></span>
                     DAILY CHALLENGE
                 </div>
+                <button class="exit-door-button" onclick="window.location.href='Main_Page.html'">🚪</button>
             </div>
         </div>
 
@@ -25,19 +26,19 @@
             <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-label">DAY</div>
-                    <div class="stat-number day-number">#0</div>
+                    <div class="stat-number day-number" id="dayNumber">#0</div>
                     <div class="stat-sub">CURRENT</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-label">STREAK</div>
-                    <div class="stat-number">0</div>
+                    <div class="stat-number" id="streakStat">0</div>
                     <div class="stat-sub">🔥 DAYS</div>
                 </div>
                 
                 <div class="stat-card">
                     <div class="stat-label">BEST</div>
-                    <div class="stat-number">0</div>
+                    <div class="stat-number" id="bestStat">0</div>
                     <div class="stat-sub">MAX STREAK</div>
                 </div>
             </div>
@@ -46,11 +47,10 @@
                 <a href="Challenges.html" class="btn-link">
                     <button class="pixel-btn play">▶ PLAY</button>
                 </a>
-                <a href="Main_Page.html" class="btn-link">
-                    <button class="pixel-btn exit">✖ EXIT</button>
-                </a>
             </div>
         </div>
     </div>
+    <script src="Js/Local_Store.js"></script>
+    <script src="Js/daily_tracking.js"></script>
 </body>
 </html>
