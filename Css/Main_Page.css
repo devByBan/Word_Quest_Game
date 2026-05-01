@@ -593,7 +593,6 @@ body.light-mode .how-popout-arrow::after {
     border-bottom-color: #d5dff5;
 }
 
-/* ========== RESPONSIVE: SMALLER SCREENS ========== */
 @media (max-width: 820px) {
     html, body {
         height: auto;

@@ -171,7 +171,7 @@ function updateStatsUI() {
         });
     }
 
-    // ========== DARK/LIGHT MODE TOGGLE ==========
+
     const DARK_MODE_KEY = 'pixelQuest_dark_mode';
     const darkBtn = document.getElementById('darkLightBtn');
 
