@@ -51,7 +51,7 @@
         formTitle.innerText = '✨ CREATE ACCOUNT ✨';
         switchMsg.innerText = 'ALREADY A WARRIOR?';
         switchBtn.innerText = 'LOGIN →';
-        // Clear fields
+        
         if (firstName) firstName.value = '';
         if (email) email.value = '';
         if (signupPassword) signupPassword.value = '';
@@ -60,14 +60,14 @@
         if (firstCounter) firstCounter.innerText = '0/12 characters';
     }
 
-    // Switch to Login form
+
     function showLogin() {
         signupForm.style.display = 'none';
         loginForm.style.display = 'block';
         formTitle.innerText = '🔐 LOGIN';
         switchMsg.innerText = 'NEW WARRIOR?';
         switchBtn.innerText = 'SIGN UP →';
-        // Clear fields
+  
         if (firstName) firstName.value = '';
         if (email) email.value = '';
         if (signupPassword) signupPassword.value = '';
@@ -76,7 +76,7 @@
         if (firstCounter) firstCounter.innerText = '0/12 characters';
     }
 
-    // Sign Up logic
+  
     function signUp() {
         const username = firstName ? firstName.value.trim() : '';
         const userEmail = email ? email.value.trim() : '';

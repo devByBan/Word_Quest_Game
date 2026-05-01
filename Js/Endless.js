@@ -1,10 +1,5 @@
-// ENDLESS MODE – Full persistence with all sounds (win, lose, hint, shuffle, low blood)
 (function() {
-    // ---------- ENHANCED WORD BANK WITH ANAGRAMS ----------
     const WORD_BANK = [
-        "RAT", "ART", "TAR", "STAR", "ARTS", "TARS", "RATS", "SILT", "LIST", "SLIT", "FILM", "MILF",
-        "TIME", "MITE", "EMIT", "ITEM", "PARK", "SPARK", "SPAR", "WRONG", "GROWN", "OWNER", "SCORE",
-        "CORES", "CRYPT", "SCREW", "CREWS", "SOUND", "NODUS", "ROUND", "DONOR", "GRAIN", "RAIN", "GAIN",
         "APPLE", "GRAPE", "MANGO", "LEMON", "PEACH", "BERRY", "HONEY", "SUGAR", "BREAD", "CHEESE",
         "CLOCK", "WATCH", "PHONE", "TABLE", "PLANT", "FLOWER", "GRASS", "LEAF", "OCEAN", "RIVER",
         "TIGER", "LION", "BEAR", "WOLF", "FOX", "RABBIT", "SNAKE", "EAGLE", "HAWK", "SHARK",
@@ -17,15 +12,12 @@
         "JELLYFISH", "STARFISH", "PENGUIN", "OCTOPUS", "LOBSTER", "CRAB", "SPIDER", "ANT", "BEE",
         "CASTLE", "PALACE", "BRIDGE", "TOWER", "FOREST", "DESERT", "ISLAND", "BEACH", "MOUNTAIN",
         "LAKE", "CLOUD", "STORM", "WIND", "FIRE", "WATER", "EARTH", "AIR", "LIGHT", "DARK",
-        "SHADOW", "GHOST", "SPIRIT", "ANGEL", "DEMON", "WITCH", "WARLOCK", "MONSTER", "BEAST",
-        "CREATURE", "ANIMAL", "STONE", "ROCK", "SAND", "DUST", "ASH", "SMOKE", "FLAME", "ICE",
-        "SNOW", "RAIN", "STAR", "MOON", "SUN", "PLANET", "COMET", "ASTEROID"
+        "SHADOW", "GHOST", "SPIRIT", "ANGEL", "DEMON", "WITCH", "WARLOCK", "MONSTER", "BEAST"
     ].filter(word => word.length <= 8);
 
-    // DOM elements
     const bloodSpan = document.getElementById("bloodLevel");
     const decayFill = document.getElementById("decayFill");
-    const highScoreSpan = document.getElementById("highScoreDisplay");
+    const highScoreSpan = document.getElementById("highScoreDisplay"); 
     const deathCounterSpan = document.getElementById("pointsDisplay");
     const scrambledDiv = document.getElementById("scrambledWord");
     const guessInput = document.getElementById("guessInput");
@@ -84,21 +76,22 @@
         decayFill.style.width = blood + "%";
         updateMeterBars();
 
-        // Low blood sound – plays when blood drops to 30% or below (once)
         if (blood <= 30 && !lowBloodPlayed && gameActive) {
             if (window.SoundManager) window.SoundManager.playLowBlood();
             lowBloodPlayed = true;
         }
-        if (blood > 30) lowBloodPlayed = false; // reset when blood recovers above 30
+        if (blood > 30) lowBloodPlayed = false;
     }
 
     function updateStatsUI() {
+     
+        highScoreSpan.innerText = currentRunScore;
         deathCounterSpan.innerText = PixelQuestStorage.getEndlessTotalDeaths();
+
+ 
         let storedHigh = PixelQuestStorage.getEndlessHighScore();
-        highScoreSpan.innerText = storedHigh;
         if (currentRunScore > storedHigh) {
             PixelQuestStorage.setEndlessHighScore(currentRunScore);
-            highScoreSpan.innerText = currentRunScore;
             if (gameActive) {
                 messageDiv.innerText = "🏆 NEW HIGH SCORE! 🏆";
                 if (window.SoundManager) window.SoundManager.playWin();
@@ -107,7 +100,7 @@
     }
 
     function updateLongestRun() {
-        if (runStartTime && gameActive === false && !cooldownActive) {
+        if (runStartTime) {
             const elapsed = Math.floor((Date.now() - runStartTime) / 1000);
             const currentLongest = PixelQuestStorage.getEndlessLongestRun();
             if (elapsed > currentLongest) PixelQuestStorage.setEndlessLongestRun(elapsed);
@@ -141,7 +134,9 @@
 
     function gameOver() {
         if (!gameActive) return;
+        
         updateLongestRun();
+        
         if (!deathRecordedForThisRun) {
             PixelQuestStorage.incrementEndlessTotalDeaths();
             deathRecordedForThisRun = true;
@@ -159,7 +154,7 @@
         startCooldownTimer();
         runStartTime = null;
         PixelQuestStorage.clearEndlessGameState();
-        if (window.SoundManager) window.SoundManager.playLose(); // lose sound on death
+        if (window.SoundManager) window.SoundManager.playLose();
     }
 
     function startCooldownTimer() {
@@ -276,7 +271,7 @@
         if (guess === "") { messageDiv.innerText = "⚠️ ENTER A WORD!"; return; }
         if (guess === currentWord) {
             currentRunScore += 10;
-            updateStatsUI();
+            updateStatsUI();             
             messageDiv.innerText = "✅ CORRECT! +10 SCORE";
             if (window.SoundManager) window.SoundManager.playWin();
             loadNewWord();
@@ -284,7 +279,7 @@
             blood -= 15;
             updateBloodUI();
             messageDiv.innerText = "❌ WRONG! -15% BLOOD";
-            if (window.SoundManager) window.SoundManager.playLose();
+            if (window.SoundManager) window.SoundManager.playLowBlood();
             if (blood <= 0) {
                 blood = 0;
                 updateBloodUI();
@@ -336,9 +331,7 @@
 
     function init() {
         const deadline = PixelQuestStorage.getEndlessCooldownDeadline();
-        if (deadline && deadline <= Date.now()) {
-            PixelQuestStorage.setEndlessCooldownDeadline(null);
-        }
+        if (deadline && deadline <= Date.now()) PixelQuestStorage.setEndlessCooldownDeadline(null);
         const activeDeadline = PixelQuestStorage.getEndlessCooldownDeadline();
         if (activeDeadline && activeDeadline > Date.now()) {
             cooldownActive = true;

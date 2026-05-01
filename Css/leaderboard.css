@@ -16,7 +16,7 @@ body {
 
 .leaderboard-container {
     width: 100%;
-    max-width: 1100px;      /* wider container */
+    max-width: 1100px;   
 }
 
 .pixel-panel {
@@ -36,7 +36,7 @@ body {
 }
 
 .pixel-title {
-    font-size: 1.4rem;      /* larger title */
+    font-size: 1.4rem;    
     color: #fadf7a;
     text-shadow: 2px 2px 0 #4d3a62;
 }
@@ -69,10 +69,10 @@ body {
 
 .leaderboard-table th,
 .leaderboard-table td {
-    padding: 1rem 0.8rem;   /* larger padding */
+    padding: 1rem 0.8rem;  
     text-align: left;
     border-bottom: 2px solid #3b2a4a;
-    font-size: 0.85rem;      /* larger font */
+    font-size: 0.85rem;      
     color: #e2ddad;
 }
 
@@ -92,7 +92,7 @@ body {
 }
 
 .player-avatar {
-    width: 48px;            /* larger avatar */
+    width: 48px;          
     height: 48px;
     background: #2a1f3a;
     border-radius: 0;

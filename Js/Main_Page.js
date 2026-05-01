@@ -2,7 +2,7 @@
 const modeCards = document.querySelectorAll('.mode-card');
 modeCards.forEach(card => {
     card.addEventListener('click', function() {
-        if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+        if (window.SoundManager) window.SoundManager.playClick();
         modeCards.forEach(c => c.classList.remove('selected'));
         this.classList.add('selected');
         
@@ -17,30 +17,25 @@ modeCards.forEach(card => {
     });
 });
 
-
 function updateStatsUI() {
     if (!window.PixelQuestStorage) return;
     const storage = window.PixelQuestStorage;
 
+   
     const dailyBest = storage.getDailyBestStreak();
     const highStatElem = document.getElementById('statHigh');
     if (highStatElem) highStatElem.innerText = dailyBest;
 
-    let endlessScore = 0;
-    const endlessState = storage.getEndlessGameState();
-    if (endlessState && endlessState.currentRunScore !== undefined) {
-        endlessScore = endlessState.currentRunScore;
-    }
+    const endlessHighScore = storage.getEndlessHighScore();
     const pointStatElem = document.getElementById('statPoint');
-    if (pointStatElem) pointStatElem.innerText = endlessScore;
+    if (pointStatElem) pointStatElem.innerText = endlessHighScore;
 
-    let highestLevel = storage.getClassicHighestLevel();
-    if (!highestLevel) highestLevel = 'A1';
+  
+    let currentRank = storage.getClassicCurrentRank();
     const rankStatElem = document.getElementById('statRank');
-    if (rankStatElem) rankStatElem.innerText = highestLevel;
+    if (rankStatElem) rankStatElem.innerText = currentRank;
 }
 
-// Storage & UI initialisation + Profile Dropdown
 (function() {
     if (!window.PixelQuestStorage) {
         console.error("localStorage.js must be loaded first!");
@@ -89,7 +84,7 @@ function updateStatsUI() {
 
     function toggleDropdown(e) {
         e.stopPropagation();
-        if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+        if (window.SoundManager) window.SoundManager.playClick();
         dropdown.classList.toggle('show');
     }
 
@@ -106,7 +101,7 @@ function updateStatsUI() {
     if (changeUsernameBtn) {
         changeUsernameBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+            if (window.SoundManager) window.SoundManager.playClick();
             const newName = prompt('Enter new username:', currentUser.username);
             if (newName && newName.trim() !== '') {
                 const trimmed = newName.trim();
@@ -124,7 +119,7 @@ function updateStatsUI() {
     if (changeAvatarBtn) {
         changeAvatarBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+            if (window.SoundManager) window.SoundManager.playClick();
             fileInput.click();
             dropdown.classList.remove('show');
         });
@@ -137,7 +132,7 @@ function updateStatsUI() {
             alert('Please select an image file.');
             return;
         }
-        if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+        if (window.SoundManager) window.SoundManager.playClick();
         const reader = new FileReader();
         reader.onload = function(ev) {
             const newAvatar = ev.target.result;
@@ -155,7 +150,7 @@ function updateStatsUI() {
     if (signOutBtn) {
         signOutBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+            if (window.SoundManager) window.SoundManager.playClick();
             if (confirm('Sign out? Your progress will be saved.')) {
                 storage.setCurrentUser(null);
                 window.location.href = "EnterName.html";
@@ -170,32 +165,59 @@ function updateStatsUI() {
     if (leaderboardBtn) {
         leaderboardBtn.addEventListener('click', (e) => {
             e.stopPropagation();
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+            if (window.SoundManager) window.SoundManager.playClick();
             window.location.href = 'Leaderboard.html';
             dropdown.classList.remove('show');
         });
     }
 
+    // ========== DARK/LIGHT MODE TOGGLE ==========
+    const DARK_MODE_KEY = 'pixelQuest_dark_mode';
     const darkBtn = document.getElementById('darkLightBtn');
-    let darkMode = false;
+
+    function setDarkMode(isDark) {
+        if (isDark) {
+            document.body.classList.remove('light');
+            document.body.classList.add('dark');
+            if (darkBtn) darkBtn.innerHTML = '☀️ LIGHT';
+        } else {
+            document.body.classList.remove('dark');
+            document.body.classList.add('light');
+            if (darkBtn) darkBtn.innerHTML = '🌓 DARK';
+        }
+        localStorage.setItem(DARK_MODE_KEY, isDark);
+    }
+
+  
+    const savedDark = localStorage.getItem(DARK_MODE_KEY);
+    if (savedDark !== null) {
+        setDarkMode(savedDark === 'true');
+    } else {
+        setDarkMode(true);
+    }
+
     if (darkBtn) {
         darkBtn.addEventListener('click', () => {
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
-            darkMode = !darkMode;
-            document.body.style.background = darkMode ? '#020005' : '#0b0710';
-            darkBtn.innerHTML = darkMode ? '☀️ LIGHT' : '🌓 DARK';
+            if (window.SoundManager) window.SoundManager.playClick();
+            const isCurrentlyDark = document.body.classList.contains('dark');
+            setDarkMode(!isCurrentlyDark);
         });
     }
 
     const soundBtn = document.getElementById('soundToggleBtn');
-    let soundOn = true;
     if (soundBtn) {
+        const isSoundOn = window.SoundManager ? window.SoundManager.enabled : true;
+        soundBtn.innerHTML = isSoundOn ? '🔊 ON' : '🔇 OFF';
         soundBtn.addEventListener('click', () => {
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
-            soundOn = !soundOn;
-            // Use SoundManager to mute/unmute
-            if (window.SoundManager) window.SoundManager.enabled = soundOn;
-            soundBtn.innerHTML = soundOn ? '🔊 ON' : '🔇 OFF';
+            if (window.SoundManager) {
+                window.SoundManager.playClick();
+                const newState = window.SoundManager.toggle();
+                soundBtn.innerHTML = newState ? '🔊 ON' : '🔇 OFF';
+            } else {
+                let soundOn = soundBtn.innerHTML === '🔊 ON';
+                soundOn = !soundOn;
+                soundBtn.innerHTML = soundOn ? '🔊 ON' : '🔇 OFF';
+            }
         });
     }
 
@@ -218,7 +240,7 @@ function updateStatsUI() {
 
     if (closeHowBtn) {
         closeHowBtn.addEventListener('click', () => {
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+            if (window.SoundManager) window.SoundManager.playClick();
             if (howPopout) howPopout.classList.remove('show');
         });
     }
@@ -229,11 +251,11 @@ function updateStatsUI() {
 
     if (instrBtn && popup && closePopup) {
         instrBtn.addEventListener('click', () => {
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+            if (window.SoundManager) window.SoundManager.playClick();
             popup.classList.add('show');
         });
         closePopup.addEventListener('click', () => {
-            if (window.SoundManager) window.SoundManager.playClick(); // + SOUND
+            if (window.SoundManager) window.SoundManager.playClick();
             popup.classList.remove('show');
         });
         popup.addEventListener('click', (e) => {

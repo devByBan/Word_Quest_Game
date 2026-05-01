@@ -1,5 +1,6 @@
-// Sound.js – extended sound manager for the game
 (function() {
+    const SOUND_ENABLED_KEY = "pixelQuest_sound_enabled";
+
     window.SoundManager = {
         enabled: true,
         clickSound: null,
@@ -12,6 +13,10 @@
         timerTickSound: null,
 
         init: function() {
+
+            const saved = localStorage.getItem(SOUND_ENABLED_KEY);
+            this.enabled = saved !== null ? saved === 'true' : true;
+
             this.clickSound = new Audio('Sound/click.wav');
             this.clickSound.volume = 0.4;
 
@@ -95,7 +100,13 @@
 
         toggle: function() {
             this.enabled = !this.enabled;
+            localStorage.setItem(SOUND_ENABLED_KEY, this.enabled);
             return this.enabled;
+        },
+
+        setEnabled: function(enabled) {
+            this.enabled = enabled;
+            localStorage.setItem(SOUND_ENABLED_KEY, this.enabled);
         }
     };
 

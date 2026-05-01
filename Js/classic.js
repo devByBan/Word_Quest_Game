@@ -1,15 +1,14 @@
-// CLASSIC MODE – No score, per‑level keys persist, step and keys saved
 (function() {
     const LEVELS = [
         { id: "A1", name: "A1 · BEGINNER", words: ["ABLE", "BIRD", "CLOUD", "DREAM", "EARTH"], time: 30 },
         { id: "A2", name: "A2 · BASIC",    words: ["FLOWER", "GARDEN", "HAPPY", "LITTLE", "MAGIC"], time: 30 },
         { id: "B1", name: "B1 · LOW INT",  words: ["BEAUTIFUL", "ADVENTURE", "CHOCOLATE", "DIAMOND", "ELEPHANT"], time: 35 },
         { id: "B2", name: "B2 · HIGH INT", words: ["FABULOUS", "GENERATION", "HISTORICAL", "IMPORTANT", "JOURNEY"], time: 40 },
-        { id: "C1", name: "C1 · ADVANCED", words: ["QUINTESSENTIAL", "PHILOSOPHICAL", "EXTRAORDINARY", "UNCONDITIONAL", "CIRCUMSTANCE"], time: 45 },
-        { id: "C2", name: "C2 · MASTER",   words: ["COMPREHENSIVE", "INTERNATIONAL", "RESPONSIBILITY", "UNDERSTANDING", "ACKNOWLEDGMENT"], time: 50 }
+        { id: "C1", name: "C1 · ADVANCED", words: ["KNOWLEDGE", "STRATEGY", "CREATIVE", "ANALYSIS", "DECISION"], time: 45 },
+        { id: "C2", name: "C2 · MASTER",   words: ["INTERNATIONAL", "DEVELOPMENT", "COMPLEXITY", "RESPONSIBLE", "UNDERSTAND"], time: 50 }
     ];
 
-    // DOM elements
+    // DOM elements 
     const levelBadge = document.getElementById('currentLevel');
     const stepDotsContainer = document.getElementById('stepDots');
     const stepTextSpan = document.getElementById('stepText');
@@ -22,7 +21,7 @@
     const messageDiv = document.getElementById('messageDisplay');
     const coinCounterSpan = document.getElementById('coinCounter');
 
-    // Game state
+    // Game state 
     let currentLevelIdx = 0;
     let currentWordIdx = 0;
     let currentWord = "";
@@ -33,7 +32,6 @@
     let gameActive = true;
     let countdownActive = false;
 
-    // ----- Per‑level key storage (user‑specific) -----
     function getStoredKeys(levelId) {
         const allKeys = PixelQuestStorage.getClassicKeysPerLevel();
         return allKeys[levelId] !== undefined ? allKeys[levelId] : 3;
@@ -44,7 +42,7 @@
         PixelQuestStorage.setClassicKeysPerLevel(allKeys);
     }
 
-    // Helper functions
+  
     function scrambleWord(word) {
         let arr = word.split('');
         for (let i = arr.length - 1; i > 0; i--) {
@@ -82,13 +80,12 @@
     }
     function updateKeysUI() {
         coinCounterSpan.innerText = `${keysRemaining} KEYS`;
-        // Save keys for current level whenever they change
         if (gameActive) {
             setStoredKeys(LEVELS[currentLevelIdx].id, keysRemaining);
         }
     }
 
-    // Countdown
+    // Countdown 
     function startCountdown(callback) {
         countdownActive = true;
         setControlsEnabled(false);
@@ -144,7 +141,7 @@
         });
     }
 
-    // Game Over Popup
+    // Game Over Popup 
     function showGameOverPopup() {
         gameActive = false;
         if (timerInterval) clearInterval(timerInterval);
@@ -177,7 +174,6 @@
             if (window.SoundManager) window.SoundManager.playClick();
             setControlsEnabled(false);
             if (timerInterval) clearInterval(timerInterval);
-            // Reset level: step 0, keys to 3 (fresh start for this level)
             currentWordIdx = 0;
             keysRemaining = 3;
             setStoredKeys(LEVELS[currentLevelIdx].id, 3);
@@ -205,7 +201,7 @@
         document.body.appendChild(overlay);
     }
 
-    // Level completion
+    // Level completion 
     function saveProgress() {
         const completed = PixelQuestStorage.getClassicCompletedLevels();
         const currentLevelId = LEVELS[currentLevelIdx].id;
@@ -214,7 +210,6 @@
         }
         PixelQuestStorage.setClassicCompletedLevels(completed);
         PixelQuestStorage.setClassicHighestLevel(currentLevelId);
-        // Clear stored keys for this level (no longer needed)
         const allKeys = PixelQuestStorage.getClassicKeysPerLevel();
         delete allKeys[currentLevelId];
         PixelQuestStorage.setClassicKeysPerLevel(allKeys);
@@ -251,7 +246,6 @@
                 if (window.SoundManager) window.SoundManager.playClick();
                 currentLevelIdx++;
                 currentWordIdx = 0;
-                // Load keys for the new level from storage
                 keysRemaining = getStoredKeys(LEVELS[currentLevelIdx].id);
                 gameActive = true;
                 updateLevelBadge();
@@ -284,7 +278,6 @@
 
         currentWordIdx++;
         if (currentWordIdx < 5) {
-            // After a correct word, reset keys to FULL 3 (full refresh for next word)
             keysRemaining = 3;
             setStoredKeys(LEVELS[currentLevelIdx].id, keysRemaining);
             updateKeysUI();
@@ -310,7 +303,7 @@
         }
     }
 
-    // Persistence
+    // Persistence 
     function saveGameState() {
         if (!gameActive) return;
         const state = {
@@ -321,7 +314,6 @@
             timerSeconds
         };
         PixelQuestStorage.setClassicGameState(state);
-   
         setStoredKeys(LEVELS[currentLevelIdx].id, keysRemaining);
     }
 
@@ -333,7 +325,6 @@
         currentWord = state.currentWord;
         scrambledWord = state.scrambledWord;
         timerSeconds = state.timerSeconds;
-        // Load keys for this level from storage
         keysRemaining = getStoredKeys(LEVELS[currentLevelIdx].id);
         updateLevelBadge();
         updateKeysUI();
@@ -368,7 +359,7 @@
         return false;
     }
 
-    // Game actions
+    
     function onSubmit() {
         if (!gameActive || countdownActive) return;
         const guess = guessInput.value.trim().toUpperCase();
@@ -404,11 +395,10 @@
             if (window.SoundManager) window.SoundManager.playLose();
             return;
         }
-        const uniqueLetters = [...new Set(currentWord.split(''))];
-        const randomLetter = uniqueLetters[Math.floor(Math.random() * uniqueLetters.length)];
-        messageDiv.innerText = `💡 HINT: The word contains the letter "${randomLetter}"`;
+        const firstLetter = currentWord[0];
+        messageDiv.innerText = `💡 HINT: The word starts with "${firstLetter}"`;
         keysRemaining--;
-        updateKeysUI();   // this calls setStoredKeys
+        updateKeysUI();
         if (window.SoundManager) window.SoundManager.playHint();
         saveGameState();
     }

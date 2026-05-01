@@ -1,4 +1,3 @@
-// DAILY CHALLENGE – Per‑user streak, one guess per day, full persistence
 (function() {
     const DAILY_WORD_BANK = [
         "SERVER", "CLOUD", "PIXEL", "QUEST", "STREAK", "DAILY", "CHALLENGE", "HABIT", "LEARN", "GROWTH",
@@ -10,7 +9,6 @@
         "FORGE", "HAMMER", "ANVIL", "SMITH", "RUNES", "SAGA", "EPIC", "LEGEND", "FABLE", "MYTH"
     ];
 
-    // DOM elements
     const lockOverlay = document.getElementById("lockOverlay");
     const lockTimerSpan = document.getElementById("lockTimer");
     const closeLockBtn = document.getElementById("closeLockBtn");
@@ -26,6 +24,8 @@
     const messageDiv = document.getElementById("messageDisplay");
 
     let gameActive = false;
+    let currentWord = "";
+    let currentScrambled = "";
 
     function getTodayDate() {
         return new Date().toISOString().split('T')[0];
@@ -109,6 +109,7 @@
         messageDiv.innerText = "✅ VICTORY! STREAK INCREASED!";
         attStatusSpan.innerText = "WON TODAY";
         attStatusSpan.style.color = "#4caf50";
+        if (window.SoundManager) window.SoundManager.playWin(); // win sound
         lockGame();
     }
 
@@ -120,6 +121,7 @@
         messageDiv.innerText = "❌ DEFEAT! STREAK RESET TO 0.";
         attStatusSpan.innerText = "LOST TODAY";
         attStatusSpan.style.color = "#f44336";
+        if (window.SoundManager) window.SoundManager.playLose(); // lose sound
         lockGame();
     }
 
@@ -146,6 +148,7 @@
         scrambledDiv.innerText = currentScrambled.split('').join(' ');
         messageDiv.innerText = "🃏 LETTERS RESHUFFLED!";
         guessInput.focus();
+        if (window.SoundManager) window.SoundManager.playShuffle();
     }
 
     function initDaily() {
@@ -208,6 +211,7 @@
         if (e.key === "Enter") onSubmit();
     });
     closeLockBtn.addEventListener("click", () => {
+        if (window.SoundManager) window.SoundManager.playClick();
         lockOverlay.style.display = "none";
     });
 

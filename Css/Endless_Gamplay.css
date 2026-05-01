@@ -17,17 +17,19 @@ body {
     overflow-x: hidden;
 }
 
+
 .game-container {
     width: 100%;
     max-width: 900px;
-    background: #2a1f3a;
+    background: #3a2c4a;
     border: 4px solid #1e1428;
-    box-shadow: inset -4px -4px 0 #1a1225, inset 4px 4px 0 #6a4f9c, 10px 10px 0 #0a0713;
+    box-shadow: inset -4px -4px 0 #231a30, inset 4px 4px 0 #7a5f9c, 12px 12px 0 rgba(0,0,0,0.5);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
+
 
 .survival-header {
     display: flex;
@@ -35,7 +37,7 @@ body {
     align-items: center;
     background: #1e1730;
     padding: 1rem 1.5rem;
-    border: 3px solid #6a5290;
+    border: 2px solid #6a5290;
     box-shadow: inset -3px -3px 0 #0f0b1e, inset 3px 3px 0 #57477a;
     flex-wrap: wrap;
     gap: 10px;
@@ -56,8 +58,8 @@ body {
 
 .title-quest {
     font-size: 1.4rem;
-    color: #b2f0c0;
-    text-shadow: 3px 3px 0 #3f6a8c, 5px 5px 0 #1e3a4f;
+    color: #ffdd99;
+    text-shadow: 3px 3px 0 #b36ba5, 5px 5px 0 #321f3a;
     letter-spacing: 2px;
     line-height: 1.2;
 }
@@ -68,24 +70,26 @@ body {
     gap: 12px;
 }
 
+
 .survival-meter {
-    background: #2f1f3f;
+    background: #2f2347;
+    border: 2px solid #a279c2;
+    box-shadow: inset -3px -3px 0 #1a1225, inset 3px 3px 0 #7d4f9f;
     padding: 0.5rem 1rem;
-    border: 2px solid #a26fb0;
     display: flex;
     align-items: center;
     gap: 10px;
-    box-shadow: inset -3px -3px 0 #1a1225, inset 3px 3px 0 #7d4f9f;
 }
 
 .meter-icon {
     font-size: 1rem;
-    color: #ffaa66;
+    color: #fadf8a;
+    text-shadow: 1px 1px 0 #6a2e5a;
 }
 
 .meter-bars {
     display: flex;
-    gap: 4px;
+    gap: 6px;
 }
 
 .bar-segment {
@@ -97,10 +101,11 @@ body {
 }
 
 .bar-segment.fill {
-    background: #c54f4f;
-    border-color: #ffa0a0;
-    box-shadow: inset -2px -2px 0 #8a2a2a, inset 2px 2px 0 #ffb0b0;
+    background: #f5c451;
+    border-color: #f0e39b;
+    box-shadow: inset -2px -2px 0 #b3782c, inset 2px 2px 0 #ffeeaa;
 }
+
 
 .exit-button {
     background: #4d3a62;
@@ -125,16 +130,17 @@ body {
     box-shadow: inset -1px -1px 0 #2b1e40, inset 1px 1px 0 #b496e6;
 }
 
+/* ========== SURVIVAL STATS (CLASSIC STAT BAR VIBE) ========== */
 .survival-stats {
-    background: #2d2240;
-    border: 3px solid #675091;
+    background: #221d34;
+    border: 3px solid #5f4f7a;
+    box-shadow: inset -2px -2px 0 #141025, inset 2px 2px 0 #7d6ba0;
     padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
-    box-shadow: inset -2px -2px 0 #1d152b, inset 2px 2px 0 #7e68b0;
 }
 
 .stat-group {
@@ -143,52 +149,58 @@ body {
 }
 
 .stat-blood {
-    background: #5a1f2a;
+    background: #2f2347;
+    border: 2px solid #a279c2;
+    box-shadow: inset -2px -2px 0 #1f1735, inset 2px 2px 0 #c7a4f0;
     padding: 0.5rem 1rem;
-    border: 2px solid #a55;
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #ffc;
+    color: #fadf8a;
     font-size: 0.9rem;
-    box-shadow: inset -2px -2px 0 #2f0f1f, inset 2px 2px 0 #b55a7a;
 }
 
 .blood-value {
     font-weight: bold;
     color: #ffaa77;
+    text-shadow: 1px 1px 0 #4f2d82;
 }
 
 .highscore-block {
-    background: #41345a;
+    background: #2f2347;
+    border: 2px solid #a279c2;
+    box-shadow: inset -2px -2px 0 #1f1735, inset 2px 2px 0 #c7a4f0;
     padding: 0.5rem 1.2rem;
-    border: 2px solid #9a85c0;
     display: flex;
     gap: 10px;
     font-size: 0.8rem;
-    color: #ebd7b0;
+    color: #fadf8a;
 }
 
 .highscore-number {
     color: #fadf7a;
     font-size: 1.2rem;
+    text-shadow: 2px 2px 0 #4f2d82;
 }
+
 
 .decay-bar {
     width: 100%;
-    height: 12px;
-    background: #3a2a4a;
-    border: 2px solid #1e1428;
-    box-shadow: inset -2px -2px 0 #1a1225, inset 2px 2px 0 #6a4f9c;
+    height: 16px;
+    background: #2f2347;
+    border: 2px solid #a279c2;
+    box-shadow: inset -3px -3px 0 #1a1225, inset 3px 3px 0 #7d4f9f;
     overflow: hidden;
 }
 
 .decay-fill {
     width: 100%;
     height: 100%;
-    background: #d55;
-    transition: width 0.1s linear;
+    background: #d44;
+    box-shadow: inset 1px 1px 0 #ff8a6f, inset -1px -1px 0 #8a2a2a;
+    transition: width 0.08s linear;
 }
+
 
 .game-area {
     background: #2d2240;
@@ -204,7 +216,6 @@ body {
     text-align: center;
 }
 
-/* ========== FIX: STRAIGHT LINE SCRAMBLED LETTERS (like Classic) ========== */
 .scrambled-word {
     display: inline-flex;
     flex-wrap: nowrap;
@@ -219,7 +230,6 @@ body {
     padding: 0.5rem 0;
 }
 
-/* Each letter tile – clean, readable, no heavy background */
 .scrambled-word span,
 .scrambled-word .letter {
     display: inline-block;
@@ -227,8 +237,8 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    color: #fce68b;
-    text-shadow: 3px 3px 0 #6b2c5c;
+    color: #ffea91;
+    text-shadow: 3px 3px 0 #9a4a8c;
     text-transform: uppercase;
     font-family: 'Press Start 2P', monospace;
     padding: 0.8rem 0;
@@ -237,24 +247,24 @@ body {
     box-shadow: none;
 }
 
-/* Hover effect stays clean */
 .scrambled-word span:hover,
 .scrambled-word .letter:hover {
-    text-shadow: 4px 4px 0 #6b2c5c;
+    text-shadow: 4px 4px 0 #9a4a8c;
     transform: scale(1.02);
 }
 
-/* Fallback if letters are not inside spans */
+
 .scrambled-word:not(span) {
     font-size: 2.2rem;
     letter-spacing: 8px;
     white-space: nowrap;
     overflow-x: auto;
     display: inline-block;
-    color: #fce68b;
-    text-shadow: 3px 3px 0 #6b2c5c;
+    color: #ffea91;
+    text-shadow: 3px 3px 0 #9a4a8c;
     padding: 0.8rem 1.2rem;
 }
+
 
 .input-area {
     display: flex;
@@ -264,8 +274,8 @@ body {
 }
 
 .guess-input {
-    background: #1f2a3f;
-    border: none;
+    background: #1e1730;
+    border: 2px solid #836db0;
     outline: none;
     font-family: 'Press Start 2P', monospace;
     font-size: 1.8rem;
@@ -273,16 +283,17 @@ body {
     width: 100%;
     max-width: 500px;
     text-align: center;
-    color: #f5edc4;
-    box-shadow: inset -5px -5px 0 #0e162b, inset 5px 5px 0 #576cad;
+    color: #f9eaa2;
+    box-shadow: inset -3px -3px 0 #0f0b1e, inset 3px 3px 0 #57477a;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
 
 .guess-input::placeholder {
-    color: #7f92c4;
+    color: #a394c4;
     font-size: 0.9rem;
 }
+
 
 .action-buttons {
     display: flex;
@@ -306,13 +317,21 @@ body {
 
 .pixel-btn:active {
     transform: translate(2px, 2px);
+    box-shadow: inset -2px -2px 0 #2b1e40, inset 2px 2px 0 #b496e6;
 }
 
+
 .pixel-btn.survival {
-    background: #3a314b;
-    border-color: #5b4b70;
-    color: #d6c6ff;
+    background: #2f2347;
+    border-color: #a279c2;
+    box-shadow: inset -3px -3px 0 #1f1735, inset 3px 3px 0 #c7a4f0;
+    color: #fee599;
 }
+
+.pixel-btn.survival:active {
+    transform: translate(2px, 2px);
+}
+
 
 .status-row {
     display: flex;
@@ -325,33 +344,66 @@ body {
 }
 
 .status-item {
-    background: #41345a;
+    background: #2f2347;
     padding: 0.5rem 2rem;
-    border: 2px solid #9a85c0;
+    border: 2px solid #a279c2;
     display: flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.9rem;
+    font-size: 0.7rem;
     color: #ebd7b0;
 }
 
 .status-value {
-    color: #fadf7a;
+    color: #fadf8a;
     font-size: 1.2rem;
+    text-shadow: 2px 2px 0 #4f2d82;
 }
 
 .message-area {
-    background: #1e1730;
-    border: 3px solid #524079;
-    color: #fee599;
+    background: #0a0c14;
+    border: 4px solid #2f3a5c;
+    box-shadow: inset -2px -2px 0 #0c1120, inset 2px 2px 0 #4c5b8c, 4px 4px 0 rgba(0,0,0,0.4);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    color: #88ff88;
+    text-shadow: 0 0 2px #00aa00;
     padding: 0.8rem;
-    text-align: center;
-    font-size: 0.7rem;
-    box-shadow: inset -2px -2px 0 #1b122b, inset 2px 2px 0 #7561aa;
-    min-height: 60px;
+    min-height: 75px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+    overflow-x: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+}
+
+.message-area::after {
+    content: "_";
+    font-weight: bold;
+    display: inline-block;
+    animation: cursorBlink 1s step-end infinite;
+    margin-left: 4px;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+
+.message-area::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.message-area::-webkit-scrollbar-track {
+    background: #1e263c;
+}
+.message-area::-webkit-scrollbar-thumb {
+    background: #4c5b8c;
+    border-radius: 0;
 }
 
 @media screen and (max-width: 700px) {

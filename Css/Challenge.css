@@ -7,7 +7,7 @@
 }
 
 body {
-    background: #0f0b1a;
+    background: #1a1d2f;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -15,7 +15,6 @@ body {
     font-family: 'Press Start 2P', 'Courier New', monospace;
     padding: 12px;
     overflow: hidden;
-    position: relative;
 }
 
 .game-container {
@@ -23,14 +22,15 @@ body {
     max-width: 900px;
     height: 100%;
     max-height: 750px;
-    background: #2a1f3a;
+    background: #3a2c4a;
     border: 4px solid #1e1428;
-    box-shadow: inset -4px -4px 0 #1a1225, inset 4px 4px 0 #6a4f9c, 10px 10px 0 #0a0713;
+    box-shadow: inset -4px -4px 0 #231a30, inset 4px 4px 0 #7a5f9c, 12px 12px 0 rgba(0,0,0,0.5);
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     position: relative;
 }
+
 
 .game-header {
     display: flex;
@@ -38,11 +38,11 @@ body {
     align-items: center;
     background: #1e1730;
     padding: 1rem 1.5rem;
-    border: 3px solid #f5c451;
-    box-shadow: inset -3px -3px 0 #0f0b1e, inset 3px 3px 0 #f5c451;
+    border: 2px solid #6a5290;
+    box-shadow: inset -3px -3px 0 #0f0b1e, inset 3px 3px 0 #57477a;
     margin-bottom: 1rem;
-    gap: 10px;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .title-block {
@@ -60,8 +60,8 @@ body {
 
 .title-quest {
     font-size: 1.4rem;
-    color: #b2f0c0;
-    text-shadow: 3px 3px 0 #3f6a8c, 5px 5px 0 #1e3a4f;
+    color: #ffdd99;
+    text-shadow: 3px 3px 0 #b36ba5, 5px 5px 0 #321f3a;
     letter-spacing: 2px;
     line-height: 1.2;
 }
@@ -70,31 +70,28 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
-    flex-wrap: wrap;
 }
 
+/* streak display — redesigned like .coin-display (classic) */
 .streak-display {
     background: #e5b13b;
     color: #302013;
-    padding: 0.5rem 1.5rem;
-    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
     box-shadow: inset -3px -3px 0 #996d24, inset 3px 3px 0 #ffdf8b;
     display: flex;
     align-items: center;
     gap: 8px;
     white-space: nowrap;
+    border: 2px solid #3b2a4a;
 }
 
 .streak-icon {
-    font-size: 1.5rem;
-    filter: drop-shadow(0 0 6px #f90);
-    animation: flicker 1.2s infinite alternate;
+    font-size: 1.2rem;
+    filter: none;
+    animation: none;
 }
 
-@keyframes flicker {
-    0% { opacity: 0.8; text-shadow: 0 0 4px #f60; }
-    100% { opacity: 1; text-shadow: 0 0 12px #fc0; }
-}
 
 .exit-button {
     background: #4d3a62;
@@ -105,7 +102,6 @@ body {
     padding: 0.5rem 0.8rem;
     color: #f9eaa2;
     cursor: pointer;
-    line-height: 1;
     transition: all 0.05s step-start;
 }
 
@@ -119,26 +115,27 @@ body {
     box-shadow: inset -1px -1px 0 #2b1e40, inset 1px 1px 0 #b496e6;
 }
 
+
 .day-indicator {
     background: #1e1730;
-    border: 3px solid #f5c451;
-    box-shadow: inset -3px -3px 0 #0f0b1e, inset 3px 3px 0 #f5c451;
+    border: 3px solid #a26fb0;
+    box-shadow: inset -3px -3px 0 #0f0b1e, inset 3px 3px 0 #7d4f9f;
     padding: 1rem;
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #ffd889;
+    color: #fadf8a;
     flex-wrap: wrap;
     gap: 10px;
 }
 
 .day-badge {
-    background: #2f1f3f;
-    padding: 0.4rem 1.5rem;
-    border: 2px solid #f5c451;
-    font-size: 1.2rem;
-    color: #f5c451;
+    background: #2f2347;
+    padding: 0.4rem 1rem;
+    border: 2px solid #8f67b5;
+    font-size: 1rem;
+    color: #fadf8a;
 }
 
 .countdown-container {
@@ -146,21 +143,22 @@ body {
     align-items: center;
     gap: 15px;
     background: #2f2347;
-    padding: 0.5rem 1.2rem;
-    border: 2px solid #f5c451;
+    padding: 0.5rem 1rem;
+    border: 2px solid #a279c2;
 }
 
 .countdown-label {
-    font-size: 0.8rem;
-    color: #f5c451;
+    font-size: 0.7rem;
+    color: #fadf8a;
 }
 
 .countdown-timer {
-    font-size: 1.2rem;
-    background: #5a4085;
-    padding: 0.4rem 1rem;
-    border: 2px solid #f5c451;
-    color: #fdebb3;
+    font-size: 1rem;
+    background: #1e1730;
+    padding: 0.3rem 0.8rem;
+    border: 2px solid #a279c2;
+    color: #fadf8a;
+    font-family: 'Press Start 2P', monospace;
 }
 
 .game-area {
@@ -179,7 +177,6 @@ body {
     margin-bottom: 1rem;
 }
 
-/* ========== FIX: STRAIGHT LINE SCRAMBLED LETTERS ========== */
 .scrambled-word {
     display: inline-flex;
     flex-wrap: nowrap;
@@ -190,11 +187,8 @@ body {
     max-width: 100%;
     overflow-x: auto;
     white-space: nowrap;
-    background: transparent;
-    padding: 0.5rem 0;
 }
 
-/* Letter tiles – clean, readable, no heavy background */
 .scrambled-word span,
 .scrambled-word .letter {
     display: inline-block;
@@ -202,33 +196,28 @@ body {
     text-align: center;
     font-size: 2rem;
     font-weight: bold;
-    color: #fce68b;
-    text-shadow: 3px 3px 0 #6b2c5c;
+    color: #ffea91;
+    text-shadow: 3px 3px 0 #9a4a8c;
     text-transform: uppercase;
     font-family: 'Press Start 2P', monospace;
     padding: 0.8rem 0;
-    background: transparent;
-    border: none;
-    box-shadow: none;
 }
 
-/* Hover effect – subtle, no background */
 .scrambled-word span:hover,
 .scrambled-word .letter:hover {
-    text-shadow: 4px 4px 0 #6b2c5c;
+    text-shadow: 4px 4px 0 #9a4a8c;
     transform: scale(1.02);
 }
 
-/* Fallback if letters are not inside spans (plain text) */
 .scrambled-word:not(span) {
-    font-size: 2rem;
-    letter-spacing: 6px;
+    font-size: 2.2rem;
+    letter-spacing: 8px;
     white-space: nowrap;
     overflow-x: auto;
     display: inline-block;
-    color: #fce68b;
-    text-shadow: 3px 3px 0 #6b2c5c;
-    padding: 0.8rem 1rem;
+    color: #ffea91;
+    text-shadow: 3px 3px 0 #9a4a8c;
+    padding: 0.8rem 1.2rem;
 }
 
 .input-area {
@@ -241,8 +230,8 @@ body {
 }
 
 .guess-input {
-    background: #1f2a3f;
-    border: none;
+    background: #1e1730;
+    border: 2px solid #836db0;
     outline: none;
     font-family: 'Press Start 2P', monospace;
     font-size: 1.8rem;
@@ -250,19 +239,19 @@ body {
     width: 100%;
     max-width: 500px;
     text-align: center;
-    color: #f5edc4;
-    box-shadow: inset -5px -5px 0 #0e162b, inset 5px 5px 0 #576cad;
+    color: #f9eaa2;
+    box-shadow: inset -3px -3px 0 #0f0b1e, inset 3px 3px 0 #57477a;
     letter-spacing: 4px;
     text-transform: uppercase;
 }
 
 .guess-input::placeholder {
-    color: #7f92c4;
+    color: #a394c4;
     font-size: 0.9rem;
 }
 
 .guess-input:disabled {
-    opacity: 0.5;
+    opacity: 0.6;
     cursor: not-allowed;
 }
 
@@ -272,6 +261,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
 }
+
 
 .pixel-btn {
     background: #4d3a62;
@@ -283,22 +273,28 @@ body {
     color: #f9eaa2;
     cursor: pointer;
     min-width: 120px;
+    transition: all 0.05s step-start;
 }
 
 .pixel-btn:active:not(:disabled) {
     transform: translate(2px, 2px);
+    box-shadow: inset -2px -2px 0 #2b1e40, inset 2px 2px 0 #b496e6;
 }
 
 .pixel-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
 }
+
 
 .pixel-btn.daily {
     background: #5a4085;
     border-color: #f5c451;
     color: #f5c451;
+    box-shadow: inset -3px -3px 0 #2b1e40, inset 3px 3px 0 #f5c451;
 }
+
 
 .status-bar {
     display: flex;
@@ -309,7 +305,6 @@ body {
     padding: 1rem 1.5rem;
     border: 3px solid #5f4f7a;
     box-shadow: inset -2px -2px 0 #141025, inset 2px 2px 0 #7d6ba0;
-    color: #ebd7b0;
     margin-bottom: 1rem;
 }
 
@@ -317,38 +312,74 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #41345a;
+    background: #1f1735;
     padding: 0.5rem 2rem;
-    border: 2px solid #9a85c0;
+    border: 2px solid #8b73b1;
     font-size: 0.7rem;
+    color: #fcda9f;
 }
 
 .stat-value {
-    color: #fadf7a;
+    color: #fadf8a;
     font-size: 1.2rem;
+    text-shadow: 2px 2px 0 #4f2d82;
 }
 
 .stat-value.won {
     color: #f5c451;
+    text-shadow: 2px 2px 0 #4f2d82;
 }
 
 .stat-value.lost {
     color: #f55;
+    text-shadow: 2px 2px 0 #4f2d82;
 }
 
 .message-area {
-    background: #1e1730;
-    border: 3px solid #524079;
-    color: #fee599;
+    background: #0a0c14;
+    border: 4px solid #2f3a5c;
+    box-shadow: inset -2px -2px 0 #0c1120, inset 2px 2px 0 #4c5b8c, 4px 4px 0 rgba(0,0,0,0.4);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.6rem;
+    color: #88ff88;
+    text-shadow: 0 0 2px #00aa00;
     padding: 0.8rem;
-    text-align: center;
-    font-size: 0.8rem;
-    box-shadow: inset -2px -2px 0 #1b122b, inset 2px 2px 0 #7561aa;
-    min-height: 50px;
+    min-height: 70px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+    overflow-x: auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
+
+.message-area::after {
+    content: "_";
+    font-weight: bold;
+    display: inline-block;
+    animation: cursorBlink 1s step-end infinite;
+    margin-left: 4px;
+}
+
+@keyframes cursorBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.message-area::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+}
+.message-area::-webkit-scrollbar-track {
+    background: #1e263c;
+}
+.message-area::-webkit-scrollbar-thumb {
+    background: #4c5b8c;
+    border-radius: 0;
+}
+
 
 .lock-overlay {
     position: fixed;
@@ -356,8 +387,8 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(15, 11, 26, 0.95);
-    backdrop-filter: blur(2px);
+    background: rgba(26, 29, 47, 0.96);
+    backdrop-filter: blur(3px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -366,9 +397,9 @@ body {
 }
 
 .lock-box {
-    background: #2a1f3a;
-    border: 4px solid #f5c451;
-    box-shadow: inset -4px -4px 0 #1a1225, inset 4px 4px 0 #6a4f9c, 10px 10px 0 #0a0713;
+    background: #3a2c4a;
+    border: 4px solid #1e1428;
+    box-shadow: inset -4px -4px 0 #231a30, inset 4px 4px 0 #7a5f9c, 12px 12px 0 rgba(0,0,0,0.5);
     padding: 2rem;
     text-align: center;
     max-width: 350px;
@@ -378,32 +409,36 @@ body {
 .lock-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
-    animation: pulse 1.5s infinite alternate;
-}
-
-@keyframes pulse {
-    from { opacity: 0.7; text-shadow: 0 0 4px #f5c451; }
-    to { opacity: 1; text-shadow: 0 0 15px #f5c451; }
+    filter: drop-shadow(2px 2px 0 #1e1428);
+    animation: none;
 }
 
 .lock-box p {
-    color: #f5c451;
-    font-size: 0.9rem;
+    color: #fadf8a;
+    font-size: 0.8rem;
     margin: 1rem 0;
     line-height: 1.6;
 }
 
 .lock-timer {
-    color: #fadf7a;
-    font-size: 1.2rem;
+    color: #88ff88;
+    font-size: 1rem;
     margin: 1rem 0;
+    font-family: 'Press Start 2P', monospace;
+    background: #1e1730;
+    padding: 0.5rem;
+    border: 2px solid #6a5290;
 }
+
+.lock-box .pixel-btn.daily {
+    margin-top: 0.5rem;
+}
+
 
 @media screen and (max-width: 600px) {
     .game-container {
         padding: 16px;
     }
-
     .scrambled-word span,
     .scrambled-word .letter {
         min-width: 45px;
@@ -417,36 +452,41 @@ body {
     .scrambled-word {
         gap: 6px;
     }
-
     .guess-input {
-        font-size: 19px;
+        font-size: 1rem;
+        padding: 0.8rem;
     }
-
     .action-buttons {
-        display: flex;
         flex-direction: column;
-    }
-
-    .pixel-btn {
         width: 100%;
     }
-
+    .pixel-btn {
+        width: 100%;
+        min-width: auto;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+    }
+    .header-right {
+        gap: 6px;
+    }
+    .exit-button {
+        font-size: 1rem;
+        padding: 0.4rem 0.6rem;
+    }
+    .message-area {
+        font-size: 0.5rem;
+        padding: 0.6rem;
+    }
     .day-indicator {
-        display: flex;
         flex-direction: column;
         align-items: flex-start;
     }
-
+    .status-bar {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
     .stat-item {
-        padding: 8px 16px;
-    }
-
-    .game-header {
+        width: 100%;
         justify-content: center;
-    }
-
-    .exit-button {
-        font-size: 16px;
-        padding: 6px 10px;
     }
 }

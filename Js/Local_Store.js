@@ -2,10 +2,10 @@
     const STORAGE_KEYS = {
         USERS: "pixelQuest_users",
         CURRENT_USER: "pixelQuest_currentUser",
-        // Base keys – user‑specific keys will be generated dynamically
+     
     };
 
-    // Helper: get a user‑specific storage key
+    
     function getUserKey(baseKey, email) {
         if (!email) email = getCurrentUserEmail();
         return `${baseKey}_${email}`;
@@ -85,7 +85,6 @@
         return users.find(u => u.email === normalizedEmail && u.password === password.trim()) || null;
     }
 
-    // ========== USER‑SPECIFIC GAME DATA ==========
     // Classic Mode
     function getClassicCompletedLevels() {
         const key = getUserKey('classic_completed_levels');
@@ -125,6 +124,19 @@
     function setClassicKeysPerLevel(keysMap) {
         const key = getUserKey('classic_keys_per_level');
         localStorage.setItem(key, JSON.stringify(keysMap));
+    }
+
+    // NEW: get current rank (highest unlocked level)
+    function getClassicCurrentRank() {
+        const completed = getClassicCompletedLevels();
+        const unlockOrder = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2'];
+        if (completed.length === 0) return 'A1';
+        for (let i = 0; i < unlockOrder.length; i++) {
+            if (!completed.includes(unlockOrder[i])) {
+                return unlockOrder[i];
+            }
+        }
+        return 'C2';
     }
 
     // Endless Mode
@@ -222,22 +234,23 @@
     }
 
     window.PixelQuestStorage = {
-        // Core user functions
+        // core user functions
         getUsers, saveUsers, getCurrentUserEmail, setCurrentUser, getCurrentUser,
         updateUserCharacter, updateUserUsername, updateUserAvatar, userExists,
         createUser, validateLogin,
-        // Classic user‑specific
+        // classic user‑specific
         getClassicCompletedLevels, setClassicCompletedLevels,
         getClassicHighestLevel, setClassicHighestLevel,
         getClassicGameState, setClassicGameState, clearClassicGameState,
         getClassicKeysPerLevel, setClassicKeysPerLevel,
-        // Endless user‑specific
+        getClassicCurrentRank,   
+        // endless user‑specific
         getEndlessHighScore, setEndlessHighScore,
         getEndlessCooldownDeadline, setEndlessCooldownDeadline,
         getEndlessTotalDeaths, setEndlessTotalDeaths, incrementEndlessTotalDeaths,
         getEndlessLongestRun, setEndlessLongestRun,
         getEndlessGameState, setEndlessGameState, clearEndlessGameState,
-        // Daily user‑specific
+        // daily user‑specific
         getDailyStreak, setDailyStreak,
         getDailyBestStreak, setDailyBestStreak,
         getDailyLastPlayDate, setDailyLastPlayDate,
