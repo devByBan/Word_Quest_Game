@@ -12,7 +12,7 @@ modeCards.forEach(card => {
         } else if (mode === 'endless') {
             window.location.href = 'Endless_level.html';
         } else if (mode === 'challenge') {
-            window.location.href = 'Challenges_Tracking.html';
+            window.location.href = 'challenges_Tracking.html';
         }
     });
 });
