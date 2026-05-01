@@ -12,7 +12,7 @@ modeCards.forEach(card => {
         } else if (mode === 'endless') {
             window.location.href = 'Endless_level.html';
         } else if (mode === 'challenge') {
-            window.location.href = 'Challenge_Tracking.html';
+            window.location.href = 'Challenges_Tracking.html';
         }
     });
 });
@@ -166,7 +166,7 @@ function updateStatsUI() {
         leaderboardBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             if (window.SoundManager) window.SoundManager.playClick();
-            window.location.href = 'Leaderboard.html';
+            window.location.href = 'leaderboard.html';
             dropdown.classList.remove('show');
         });
     }
