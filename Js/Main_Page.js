@@ -10,9 +10,9 @@ modeCards.forEach(card => {
         if (mode === 'classic') {
             window.location.href = 'Level_Page.html';
         } else if (mode === 'endless') {
-            window.location.href = 'endless_level.html';
+            window.location.href = 'Endless_level.html';
         } else if (mode === 'challenge') {
-            window.location.href = 'challenges_Tracking.html';
+            window.location.href = 'Challenges_Tracking.html';
         }
     });
 });

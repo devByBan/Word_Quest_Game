@@ -1,4 +1,3 @@
-// Choose_Character.js – redirects returning users to main page if character already selected
 (function() {
     if (!window.PixelQuestStorage) {
         console.error("localStorage.js must be loaded first!");
@@ -19,7 +18,7 @@
         return;
     }
 
-    // If user already has a character, skip selection and go straight to main page
+   
     if (currentUser.characterImage) {
         window.location.href = "Main_Page.html";
         return;
